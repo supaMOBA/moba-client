@@ -1,0 +1,6 @@
+(executable
+    (name RagnaMOBA)
+    (package moba-client)
+    (preprocess (pps brisk-reconciler.ppx))
+    (public_name RagnaMOBA)
+    (libraries bigarray Revery))
