@@ -11,8 +11,11 @@ defmodule RagnaMoba.Application do
       RagnaMoba.Repo,
       RagnaMobaWeb.Telemetry,
       {Phoenix.PubSub, name: RagnaMoba.PubSub},
-      RagnaMobaWeb.Endpoint
+      RagnaMobaWeb.Endpoint,
+      {Desktop.Window, desktop()}
     ]
+
+    Desktop.identify_default_locale(RagnaMobaWeb.Gettext)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -26,5 +29,18 @@ defmodule RagnaMoba.Application do
   def config_change(changed, _new, removed) do
     RagnaMobaWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp desktop do
+    [
+      app: :ragna_moba,
+      id: RagnaMobaApp,
+      title: "ragnaMOBA",
+      size: {800, 600},
+      icon: "static/images/icon.png",
+      # menubar: RagnaMobaApp.MenuBar,
+      # icon_menu: RagnaMobaApp.Menu,
+      url: &RagnaMobaWeb.Endpoint.url/0
+    ]
   end
 end
