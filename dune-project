@@ -1,7 +1,0 @@
-(lang dune 2.0)
-(name moba-client)
-(source (github ragnamoba/moba-client))
-(license MIT)
-(authors "Alexandre de Souza")
-(maintainers "Alexandre de Souza")
-(generate_opam_files true)
