@@ -34,9 +34,7 @@ defmodule RagnaMoba.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.6.0-rc.0", override: true},
-      {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.6"},
-      {:ecto_sqlite3, "~> 0.7"},
+      {:ecto, "~> 3.6"},
       {:phoenix_html, "~> 3.0", override: true},
       {:phoenix_live_reload, "~> 1.2"},
       {:phoenix_live_view, "~> 0.16.0"},
@@ -59,10 +57,7 @@ defmodule RagnaMoba.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      setup: ["deps.get", "deps.compile"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end

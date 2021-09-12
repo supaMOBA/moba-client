@@ -8,7 +8,6 @@ defmodule RagnaMoba.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      RagnaMoba.Repo,
       RagnaMobaWeb.Telemetry,
       {Phoenix.PubSub, name: RagnaMoba.PubSub},
       RagnaMobaWeb.Endpoint,
